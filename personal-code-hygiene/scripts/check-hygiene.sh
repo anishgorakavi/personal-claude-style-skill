@@ -78,6 +78,21 @@ check_makefile_recipes() {
     done
 }
 
+# The first line after any shebang or blank lines must be a comment or docstring.
+# Method-level comments are not checked here: finding methods needs a per-language parser.
+check_file_headers() {
+  printf '%s\n' "$source_files" | while IFS= read -r file; do
+    [ -n "$file" ] && [ ! "$file" -ef "$self" ] || continue
+    first_line=$(grep -m 1 -vE '^(#!|[[:space:]]*$)' "$file")
+    case "$first_line" in
+      '#include'* | '#define'* | '#pragma'* | '#if'*) has_header=no ;;
+      '#'* | '//'* | '/*'* | '--'* | '"""'* | "'''"* | '<!--'* | ' *'*) has_header=yes ;;
+      *) has_header=no ;;
+    esac
+    [ "$has_header" = yes ] || echo "$file:1: [comment] file does not start with a purpose comment"
+  done
+}
+
 check_leftovers() {
   printf '%s\n' "$source_files" | while IFS= read -r file; do
     [ -n "$file" ] && [ ! "$file" -ef "$self" ] || continue
@@ -87,7 +102,7 @@ check_leftovers() {
   done
 }
 
-findings=$(check_tree_md; check_tab_indentation; check_makefile_recipes; check_leftovers)
+findings=$(check_tree_md; check_tab_indentation; check_makefile_recipes; check_file_headers; check_leftovers)
 
 if [ -n "$findings" ]; then
   printf '%s\n' "$findings"

@@ -50,9 +50,17 @@ gives a reason.**
 ### Comments
 - [M] No conversational AI commentary, obsolete/commented-out attempts, debug notes, or
   unnecessary TODOs in finished code.
-- [P] Comments explain why: non-obvious reasoning, constraints, design decisions. Never narrate
-  what the code plainly does (`# increment counter`). Document public contracts (parameters,
-  returns, side effects, exceptions) when that helps a caller.
+- [M] File header: the first one or two lines of every source file (after any shebang or
+  encoding line) state the file's purpose, in the language's comment or docstring syntax.
+  Keep it consistent with its `TREE.md` entry.
+- [M] Every method, function, and class method has a comment or docstring (nested closures and
+  lambdas excluded). Lead with what it is for; add parameters, return value, side effects, and
+  exceptions only when a caller needs them. A trivial method gets one short line, not a
+  restated signature. Use the language's convention (docstring, JSDoc, Javadoc, `///`, `//`
+  above the function).
+- [P] Inline comments explain why: non-obvious reasoning, constraints, design decisions. Never
+  narrate what the code plainly does (`# increment counter`), and do not comment self-explanatory
+  variables or fields.
 
 ### Whitespace
 - [M] Spaces, not tabs, in ordinary source. Tabs only where the language or tooling requires them
@@ -104,7 +112,8 @@ gives a reason.**
 ## Completion checklist
 
 - Names self-explanatory? Any unnecessary abstraction or dependency?
-- Comments explain why, not what? No AI chatter, dead code, debug leftovers, stray TODOs?
+- Every file opens with a purpose line or two, and every method has a comment? Inline comments
+  explain why, not what? No AI chatter, dead code, debug leftovers, stray TODOs?
 - Indentation correct (spaces; Makefile tabs intact)?
 - `TREE.md` in sync with the file set and responsibilities?
 - Only intended files modified? No unrelated behavior or formatting changes?

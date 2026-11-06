@@ -12,6 +12,7 @@ before reporting it.
 | No stale entries | backticked file names in `TREE.md` exist | `tree` |
 | Spaces over tabs | source line starting with a tab (Go excluded) | `whitespace` |
 | Makefile tabs intact | recipe line indented with spaces | `whitespace` |
+| File purpose header | first non-shebang line of a source file is a comment or docstring | `comment` |
 | Finished-code leftovers | `TODO`/`FIXME`/`XXX`/`HACK`, AI phrasing, debugger calls | `leftover` |
 
 Also mechanical, but done by the project's own tools, not this skill: formatting, lint rules,
@@ -25,7 +26,8 @@ findings. Dismiss those if the pattern is stated.
 | Rule | What to look for |
 | --- | --- |
 | Meaningful names | Would a newcomer know what `data2`, `handle`, `util` hold or do? |
-| Comments add information | Narration of the next line, restated field names, stale or misleading comments, missing *why* on non-obvious logic |
+| Method comments present and useful | Every method has one that says what it is for (the script cannot find missing ones); header describes the file's real purpose; neither merely restates the name |
+| Inline comments add information | Narration of the next line, restated field names, stale or misleading comments, missing *why* on non-obvious logic |
 | Needless abstraction | Single-implementation interfaces, pass-through wrappers, factories for one type, helper-of-helper chains |
 | Over-inlined code | A function doing unrelated jobs that cannot be tested or understood in one reading |
 | Magic values | Literals whose meaning is not obvious at the use site |

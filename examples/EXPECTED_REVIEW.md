@@ -1,6 +1,6 @@
 # Review of examples/messy-project
 
-Scope: all four files; mechanical script: ran (5 findings, all confirmed); tests: none exist, nothing run.
+Scope: all four files; mechanical script: ran (7 findings, all confirmed); tests: none exist, nothing run.
 
 ## Correctness
 - stats.py:9: `avg([])` raises `ZeroDivisionError` (`main()` with no arguments crashes). Fix: decide the
@@ -8,11 +8,15 @@ Scope: all four files; mechanical script: ran (5 findings, all confirmed); tests
   add a test for it.
 - stats.py:17: `main()` runs on import. Fix: guard with `if __name__ == "__main__":` so `avg` can be
   tested without executing the script.
-
 - Makefile:2: the `run` recipe is indented with spaces, so GNU make fails with "missing separator".
   Fix: replace the leading spaces with a single tab. The `test:` recipe already uses a tab; leave it.
 
 ## Maintainability
+- stats.py:1, helpers.py:1: no file purpose comment. Fix: open each with a line or two, e.g.
+  `"""Computes summary statistics for numbers given on the command line."""`.
+- stats.py:3, 11, 14 (`avg`, `is_adult`, `main`) and helpers.py:1 (`clamp`): no method comments
+  (the script cannot detect these). Fix: one purpose line each; `avg`'s must state the
+  empty-input behavior chosen above, and `clamp`'s that `low <= high` is assumed.
 - stats.py:4-9, 12, 15-16: indentation uses tabs. Fix: re-indent with 4 spaces (formatter output only,
   no logic change).
 - stats.py:12: `18` is an unexplained magic value. Fix: `ADULT_AGE_YEARS = 18`. Also, `is_adult` is
@@ -30,5 +34,4 @@ Scope: all four files; mechanical script: ran (5 findings, all confirmed); tests
 - none
 
 Not verified: no tests exist; the `make` targets were not run.
-Out of scope (noticed, not changed): `helpers.py:clamp` assumes `low <= high` and does not say so; add
-that to its docstring or an assertion if callers can pass arbitrary bounds.
+Out of scope (noticed, not changed): none.
