@@ -3,6 +3,8 @@
 Claude Code skill (`personal-code-hygiene`) that applies and enforces my personal software-engineering standards, plus a small demo.
 
 README.md                                   Install, activation, and usage instructions.
+AGENTS.md                                   Rules for AI agents editing this repo: source of truth, checker constraints, demo caveats, verification commands.
+CLAUDE.md                                   Imports AGENTS.md and adds Claude Code specifics (skill invocation, fresh-session testing).
 personal-code-hygiene/                      The skill itself; this folder is what gets installed into a skills directory.
   SKILL.md                                  Entry point: precedence, mandatory vs preferred rules (incl. file headers and method comments), Implementation and Review workflows, completion checklist.
   references/tree-md.md                     Format, rules, and example for the project's TREE.md.
