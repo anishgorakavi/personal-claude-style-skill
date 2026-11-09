@@ -8,6 +8,7 @@ CLAUDE.md                                   Imports AGENTS.md and adds Claude Co
 personal-code-hygiene/                      The skill itself; this folder is what gets installed into a skills directory.
   SKILL.md                                  Entry point: precedence, mandatory vs preferred rules (incl. file headers and method comments), Implementation and Review workflows, completion checklist.
   references/tree-md.md                     Format, rules, and example for the project's TREE.md.
+  references/tech-details-and-quiz.md      Formats and rules for a project's TECH_DETAILS.md and self-graded QUIZ.md.
   references/review-checklist.md            Mechanical vs judgment table, tab exceptions, and the Review-mode report template.
   scripts/check-hygiene.sh                  Read-only POSIX shell checks: TREE.md sync, tab indentation, Makefile recipe tabs, file purpose headers, leftover markers.
 examples/                                   Demonstration material; intentionally violates the rules.

@@ -38,6 +38,7 @@ findings. Dismiss those if the pattern is stated.
 | Contracts preserved | Public signatures, return shapes, schema, CLI flags unchanged unless required |
 | Tests | Behavior changes have tests; claimed results correspond to commands actually run |
 | `TREE.md` accuracy | Descriptions match what the file does now |
+| `TECH_DETAILS.md` and `QUIZ.md` accuracy | Setup commands run or marked not run; flow matches the code; each quiz answer is still true and cites a real location |
 
 ## Tab exceptions
 

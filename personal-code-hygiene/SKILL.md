@@ -1,6 +1,6 @@
 ---
 name: personal-code-hygiene
-description: Apply and enforce my personal software-engineering standards (TREE.md upkeep, self-explanatory code, useful-only comments, spaces over tabs with Makefile tab exceptions, no needless abstraction, minimal architecture-respecting changes, honest verification). Use whenever writing, modifying, refactoring, or reviewing code in any language, when creating/moving/deleting project files, or when asked for a code review, hygiene check, or cleanup.
+description: Apply and enforce my personal software-engineering standards (TREE.md, TECH_DETAILS.md, and QUIZ.md upkeep, self-explanatory code, useful-only comments, spaces over tabs with Makefile tab exceptions, no needless abstraction, minimal architecture-respecting changes, honest verification). Use whenever writing, modifying, refactoring, or reviewing code in any language, when creating/moving/deleting project files, or when asked for a code review, hygiene check, or cleanup.
 argument-hint: "[review|implement] [path]"
 ---
 
@@ -33,6 +33,12 @@ gives a reason.**
   moves, renames, or repurposes a file. Format and example: `references/tree-md.md`.
 - [M] `TREE.md` describes every relevant source file in one or two accurate lines, plus the
   responsibility of each important directory. Exclude generated files, dependencies, build output.
+- [M] Keep `TECH_DETAILS.md` at the repo root: stack, setup and commands, architecture and data
+  flow, key concepts, gotchas, and where to start reading. Update it in the same change that
+  changes any of those. Format: `references/tech-details-and-quiz.md`.
+- [M] Keep `QUIZ.md` at the repo root: self-graded questions that test understanding of the code,
+  with the answer key about 200 lines below the questions. Keep every answer true for the current
+  code. Format: `references/tech-details-and-quiz.md`.
 
 ### Code
 - [P] Meaningful names; straightforward algorithms over clever ones; readability and algorithmic
@@ -87,7 +93,8 @@ gives a reason.**
 
 1. Read the surrounding code and repo instructions. Match their naming, comment density, idiom.
 2. Make the smallest change that satisfies the task.
-3. Update `TREE.md` if the file set or any file's responsibility changed.
+3. Update `TREE.md` if the file set or any file's responsibility changed. Update `TECH_DETAILS.md`
+   and `QUIZ.md` if the behavior, setup, or flow they describe changed; create them if missing.
 4. Run the project's tests/formatter/linter if present. Run
    `sh ${CLAUDE_SKILL_DIR}/scripts/check-hygiene.sh` for the mechanical checks (optional; read-only).
 5. Before finishing, run the checklist below against your own diff (`git diff`). Fix problems in
@@ -102,7 +109,8 @@ gives a reason.**
 3. Report concrete violations as `path:line` with the evidence and a minimal fix, grouped by:
    - **Correctness**: bugs, broken invariants, unhandled edge/failure paths, missing tests,
      unverified claims. Highest priority.
-   - **Maintainability**: [M] violations, stale `TREE.md`, needless abstraction, misleading or
+   - **Maintainability**: [M] violations, stale `TREE.md`, `TECH_DETAILS.md`, or `QUIZ.md`
+     (including quiz answers the code contradicts), needless abstraction, misleading or
      missing why-comments, duplicated state.
    - **Style preference**: [P] items. Keep short; omit what the formatter already enforces.
 4. Do not edit files in Review mode unless asked. Do not pad the report: if a category is empty,
@@ -116,10 +124,12 @@ gives a reason.**
   explain why, not what? No AI chatter, dead code, debug leftovers, stray TODOs?
 - Indentation correct (spaces; Makefile tabs intact)?
 - `TREE.md` in sync with the file set and responsibilities?
+- `TECH_DETAILS.md` and `QUIZ.md` match the code, and every quiz answer still holds?
 - Only intended files modified? No unrelated behavior or formatting changes?
 - Edge cases and failure paths handled? Existing contracts (APIs, schemas) preserved?
 - Relevant tests/linters actually run, with results reported honestly, gaps stated?
 - Understandable by a newcomer without asking an LLM?
 
 Supporting files (load only when needed): `references/tree-md.md` (TREE.md format),
+`references/tech-details-and-quiz.md` (TECH_DETAILS.md and QUIZ.md formats),
 `references/review-checklist.md` (mechanical vs judgment table, report template, tab exceptions).

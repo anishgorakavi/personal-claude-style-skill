@@ -25,6 +25,8 @@ Re-copy after editing this repo's copy.
 ## Use
 
 - Automatic: Claude loads the skill when you write, modify, or review code, or add/move/delete files.
+- Newcomer aids: the skill keeps `TECH_DETAILS.md` (stack, setup, architecture, gotchas) and a
+  self-graded `QUIZ.md` (answer key about 200 lines below the questions) in each project it works on.
 - Explicit: `/personal-code-hygiene review src/` or `/personal-code-hygiene implement`.
 - Mechanical checks alone: `sh personal-code-hygiene/scripts/check-hygiene.sh [project-root]`.
 
