@@ -1,3 +1,5 @@
+<!-- Install, activation, and usage instructions for the personal-code-hygiene skill. -->
+
 # personal-claude-style-skill
 
 A Claude Code skill, `personal-code-hygiene`, that applies my software-engineering standards when

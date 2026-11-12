@@ -1,3 +1,5 @@
+<!-- Mechanical vs judgment checks, tab exceptions, and the Review-mode report template. -->
+
 # Review checklist and enforcement notes
 
 ## What can be checked mechanically
@@ -12,7 +14,7 @@ before reporting it.
 | No stale entries | backticked file names in `TREE.md` exist | `tree` |
 | Spaces over tabs | source line starting with a tab (Go excluded) | `whitespace` |
 | Makefile tabs intact | recipe line indented with spaces | `whitespace` |
-| File purpose header | first non-shebang line of a source file is a comment or docstring | `comment` |
+| File purpose header | first non-shebang line of a source file is a comment or docstring (checker covers source files only; check other commentable files by hand: config, Markdown, scripts) | `comment` |
 | Finished-code leftovers | `TODO`/`FIXME`/`XXX`/`HACK`, AI phrasing, debugger calls | `leftover` |
 
 Also mechanical, but done by the project's own tools, not this skill: formatting, lint rules,

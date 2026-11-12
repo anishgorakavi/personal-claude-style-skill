@@ -4,6 +4,8 @@ description: Apply and enforce my personal software-engineering standards (TREE.
 argument-hint: "[review|implement] [path]"
 ---
 
+<!-- Entry point for the personal-code-hygiene skill: rules, Implementation and Review modes, checklist. -->
+
 # Personal Code Hygiene
 
 Goal: code a human can understand, verify, modify, and maintain without the AI that wrote it.
@@ -56,9 +58,11 @@ gives a reason.**
 ### Comments
 - [M] No conversational AI commentary, obsolete/commented-out attempts, debug notes, or
   unnecessary TODOs in finished code.
-- [M] File header: the first one or two lines of every source file (after any shebang or
-  encoding line) state the file's purpose, in the language's comment or docstring syntax.
-  Keep it consistent with its `TREE.md` entry.
+- [M] File header: every file opens with a one- or two-line comment stating its purpose, placed
+  after any shebang, encoding line, or YAML frontmatter, in the file's comment syntax (`#`, `//`,
+  `--`, `<!-- -->` in Markdown, docstring in Python). Files with no comment syntax (JSON, lockfiles,
+  images, binaries) have no header; their `TREE.md` entry states the purpose instead. Keep the
+  header consistent with the `TREE.md` entry.
 - [M] Every method, function, and class method has a comment or docstring (nested closures and
   lambdas excluded). Lead with what it is for; add parameters, return value, side effects, and
   exceptions only when a caller needs them. A trivial method gets one short line, not a
@@ -120,7 +124,7 @@ gives a reason.**
 ## Completion checklist
 
 - Names self-explanatory? Any unnecessary abstraction or dependency?
-- Every file opens with a purpose line or two, and every method has a comment? Inline comments
+- Every file with comment syntax opens with a one- or two-line purpose comment, and every method has a comment? Inline comments
   explain why, not what? No AI chatter, dead code, debug leftovers, stray TODOs?
 - Indentation correct (spaces; Makefile tabs intact)?
 - `TREE.md` in sync with the file set and responsibilities?

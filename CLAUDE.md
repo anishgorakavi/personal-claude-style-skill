@@ -1,3 +1,5 @@
+<!-- Claude Code entry point: imports AGENTS.md and adds skill invocation and testing notes. -->
+
 # CLAUDE.md
 
 @AGENTS.md

@@ -1,3 +1,5 @@
+<!-- Rules for AI agents editing this repo: source of truth, checker constraints, demo caveats, verification. -->
+
 # AGENTS.md
 
 Instructions for AI agents working in this repository. Read `TREE.md` for the file map and
@@ -16,7 +18,8 @@ everything else is docs and a demo.
   `~/.claude/skills/personal-code-hygiene/`. After editing, sync and confirm:
   `cp -R personal-code-hygiene ~/.claude/skills/ && diff -r personal-code-hygiene ~/.claude/skills/personal-code-hygiene`
 - **Follow the skill's own rules here.** Keep `TREE.md` current in the same change, open every
-  source file with a purpose line, comment every function, use spaces, and keep changes minimal.
+  file with a one- or two-line purpose header (see the skill's header rule), comment every
+  function, use spaces, and keep changes minimal.
 - **Keep `SKILL.md` short.** It is loaded into context whenever the skill triggers. Put long
   material in `personal-code-hygiene/references/` and link it. Tag every rule `[M]` (mandatory)
   or `[P]` (preference); do not add rules without a reason I gave.

@@ -1,3 +1,5 @@
+<!-- Format, rules, and example for a project's TREE.md. -->
+
 # TREE.md format
 
 `TREE.md` is a map for a newcomer: where things live and what each file is for. It is not a
@@ -9,6 +11,8 @@
 - One summary sentence at the top describing what the project is.
 - Every relevant source, config, and test file gets a one- or two-line description of its
   *purpose* (what it is responsible for), not a restatement of its name.
+- Files with no comment syntax (JSON, lockfiles, images, binaries) get their purpose only here,
+  since they cannot carry a header.
 - Important directories get a line stating their responsibility.
 - Repetitive families (e.g. `migrations/001_*.sql`, generated-style fixtures) may share one line
   that states the pattern.

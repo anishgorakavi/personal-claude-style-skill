@@ -1,3 +1,5 @@
+<!-- Formats and rules for a project's TECH_DETAILS.md and self-graded QUIZ.md. -->
+
 # TECH_DETAILS.md and QUIZ.md format
 
 Both files help a newcomer understand a codebase without asking the AI that wrote it. Both live
